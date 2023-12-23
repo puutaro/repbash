@@ -1,0 +1,11 @@
+
+// basic
+TXT_LABEL2	label2
+
+// path
+cmdYoutubePlayerDirPath	"/home/DUMMY/DUMMY/DIR"
+cmdYoutubePlayerEditDirPath	"${cmdYoutubePlayerDirPath}/EDIT"
+cmdYoutubePlayerListDirPath	"${cmdYoutubePlayerDirPath}/LIST"
+
+// file path
+cmdYoutubePlayerDirListFilePath	"${cmdYoutubePlayerListDirPath}/MUSIC_DIR_LIST"

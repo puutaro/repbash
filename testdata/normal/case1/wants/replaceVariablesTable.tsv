@@ -1,0 +1,5 @@
+TXT_LABEL	label
+cmdMusicPlayerDirPath	/home/dummy/dir/path
+cmdMusicPlayerEditDirPath	${cmdMusicPlayerDirPath}/edit
+cmdMusicPlayerListDirPath	${cmdMusicPlayerDirPath}/list
+cmdMusicPlayerDirListFilePath	${cmdMusicPlayerListDirPath}/music_dir_list

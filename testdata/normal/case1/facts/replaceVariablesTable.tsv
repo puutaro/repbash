@@ -1,0 +1,23 @@
+
+// basic
+TXT_LABEL	label
+
+
+// dir path
+cmdMusicPlayerDirPath	"/home/dummy/dir/path"
+cmdMusicPlayerEditDirPath	"${cmdMusicPlayerDirPath}/edit"
+cmdMusicPlayerListDirPath	"${cmdMusicPlayerDirPath}/list"
+cmdMusicPlayerSmallListDirPath	"${cmdMusicPlayerListDirPath}/smallList"
+
+// file path
+FANNEL_PATH	"/home/xbabu/Desktop/share/android/cmds/repbash/testdata/normal/shell/launch.sh"
+cmdMusicPlayerDirListFilePath	"${cmdMusicPlayerListDirPath}/music_dir_list"
+cmdMusicPlayerSmallDirListFilePath	"${cmdMusicPlayerSmallListDirPath}/small_list"
+
+
+// libs path
+REPLACE_VARIABLE_TABLE_TSV_PATH	/home/xbabu/Desktop/share/android/cmds/repbash/testdata/normal/case1/facts/replaceVariablesTable2.tsv
+IMPORT_PATH1	"/home/xbabu/Desktop/share/android/cmds/repbash/testdata/normal/case1/facts/importShell1.sh"
+IMPORT_PATH2	"/home/xbabu/Desktop/share/android/cmds/repbash/testdata/normal/case1/facts/importShell2.sh"
+IMPORT_PATH3	"/home/xbabu/Desktop/share/android/cmds/repbash/testdata/normal/case1/facts/importShell3.sh"
+IMPORT_GIT1	"https://raw.githubusercontent.com/puutaro/CommandClick-Linux/master/echoFromGit.sh"
