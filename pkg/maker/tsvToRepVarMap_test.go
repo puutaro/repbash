@@ -106,21 +106,14 @@ func TestTsvToRepVarMap(t *testing.T) {
 			"normal",
 			testTsvToRepVarMapStruct{
 				testTsvPathList{
-					fact: filepath.Join(testDataDirPath, "normal/case1/facts/replaceVariablesTable.tsv"),
+					fact: filepath.Join(testDataDirPath, "normal/case1/facts/replaceVariablesTable2.tsv"),
 					want: map[string]string{
-						"FANNEL_PATH":                        filepath.Join(testDataDirPath, "normal/shell/launch.sh"),
-						"IMPORT_GIT1":                        "https://raw.githubusercontent.com/puutaro/CommandClick-Linux/master/echoFromGit.sh",
-						"IMPORT_PATH1":                       filepath.Join(testDataDirPath, "normal/case1/facts/importShell1.sh"),
-						"IMPORT_PATH2":                       filepath.Join(testDataDirPath, "normal/case1/facts/importShell2.sh"),
-						"IMPORT_PATH3":                       filepath.Join(testDataDirPath, "normal/case1/facts/importShell3.sh"),
-						"REPLACE_VARIABLE_TABLE_TSV_PATH":    filepath.Join(testDataDirPath, "normal/case1/facts/replaceVariablesTable2.tsv"),
-						"TXT_LABEL":                          "label",
-						"cmdMusicPlayerDirListFilePath":      filepath.Join("/home/dummy/dir/path/list/music_dir_list"),
-						"cmdMusicPlayerDirPath":              "/home/dummy/dir/path",
-						"cmdMusicPlayerEditDirPath":          "/home/dummy/dir/path/edit",
-						"cmdMusicPlayerListDirPath":          "/home/dummy/dir/path/list",
-						"cmdMusicPlayerSmallDirListFilePath": "/home/dummy/dir/path/list/smallList/small_list",
-						"cmdMusicPlayerSmallListDirPath":     "/home/dummy/dir/path/list/smallList",
+						"TXT_LABEL2":                      "label2",
+						"cmdYoutubePlayerBlankVal":        "",
+						"cmdYoutubePlayerDirListFilePath": "/home/DUMMY/DUMMY/DIR/LIST/MUSIC_DIR_LIST",
+						"cmdYoutubePlayerDirPath":         "/home/DUMMY/DUMMY/DIR",
+						"cmdYoutubePlayerEditDirPath":     "/home/DUMMY/DUMMY/DIR/EDIT",
+						"cmdYoutubePlayerListDirPath":     "/home/DUMMY/DUMMY/DIR/LIST",
 					},
 				},
 				testTsvReaderService{

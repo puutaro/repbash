@@ -106,6 +106,7 @@ func TestMakeLaunchShell(t *testing.T) {
 						"IMPORT_PATH3":                    filepath.Join(testDataDirPath, "normal/case1/facts/importShell3.sh"),
 						"REPLACE_VARIABLE_TABLE_TSV_PATH": filepath.Join(testDataDirPath, "normal/case1/facts/replaceVariablesTable.tsv"),
 						"TXT_LABEL":                       "label",
+						"cmdYoutubePlayerBlankVal":        "",
 						"cmdMusicPlayerDirListFilePath":   filepath.Join("/home/dummy/dir/path/list/music_dir_list"),
 						"cmdMusicPlayerDirPath":           "/home/dummy/dir/path",
 						"cmdMusicPlayerEditDirPath":       "/home/dummy/dir/path/edit",

@@ -49,6 +49,7 @@ echo "echo 'repbash'"
 echo "echo 'cmdMusicPlayerDirPath' ${cmdMusicPlayerDirPath}"
 echo "echo 'cmdMusicPlayerListDirPath' ${cmdMusicPlayerListDirPath}"
 echo "echo 'cmdMusicPlayerDirListFilePath' ${cmdMusicPlayerDirListFilePath}"
+echo "echo 'cmdYoutubePlayerBlankVal' ${cmdYoutubePlayerBlankVal}"
 
 go build -o repbash cmd/repbash/main.go \
 ;exec ./repbash \

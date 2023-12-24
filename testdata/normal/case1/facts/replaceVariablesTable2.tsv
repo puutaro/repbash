@@ -9,3 +9,6 @@ cmdYoutubePlayerListDirPath	"${cmdYoutubePlayerDirPath}/LIST"
 
 // file path
 cmdYoutubePlayerDirListFilePath	"${cmdYoutubePlayerListDirPath}/MUSIC_DIR_LIST"
+
+// other
+cmdYoutubePlayerBlankVal

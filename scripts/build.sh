@@ -24,18 +24,28 @@ esac
 
 readonly VERSION="0.0.1"
 
-binary_name="repbash-${VERSION}-amd64"
+readonly binary_name_amd64="repbash-${VERSION}-amd64"
 go build -o \
-  "${binary_name}" \
+  "${binary_name_amd64}" \
   cmd/repbash/main.go | pv
-chmod +x "${binary_name}"
+chmod +x "${binary_name_amd64}"
+#gh release create "${VERSION}" "${binary_name_amd64}"
 
-binary_name="repbash-${VERSION}-arm64"
+binary_name_arm64="repbash-${VERSION}-arm64"
 GOOS=linux \
 GOARCH=arm64 \
 CGO_ENABLED=1 \
 CC=aarch64-linux-gnu-gcc \
 	go build -o \
-	  "${binary_name}" \
+	  "${binary_name_arm64}" \
 	  cmd/repbash/main.go | pv
-chmod +x "${binary_name}"
+chmod +x "${binary_name_arm64}"
+
+gh release delete -y "${VERSION}"
+sleep 1
+gh release create "${VERSION}" \
+  --title "repbash-${VERSION}" \
+  --latest \
+  --notes "update release" \
+  "${binary_name_arm64}" \
+  "${binary_name_amd64}"

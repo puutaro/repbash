@@ -88,7 +88,9 @@ func convertRepValListToMap(
 			strings.HasPrefix(trimLine, "//") {
 			continue
 		}
-		trimLineKeyValueList := strings.Split(trimLine, "\t")
+		trimLineKeyValueList := makeTrimLineKeyValueList(
+			trimLine,
+		)
 		if len(trimLineKeyValueList) < 2 {
 			continue
 		}
@@ -118,7 +120,12 @@ func convertTsvToList(
 			strings.HasPrefix(trimLine, "//") {
 			continue
 		}
-		trimLineKeyValueList := strings.Split(trimLine, "\t")
+		trimLineKeyValueList := makeTrimLineKeyValueList(
+			trimLine,
+		)
+		if len(trimLineKeyValueList) == 1 {
+			trimLineKeyValueList = append(trimLineKeyValueList, "")
+		}
 		if len(trimLineKeyValueList) < 2 {
 			continue
 		}
@@ -148,7 +155,9 @@ func replaceRepValRecursively(
 	lastRepValConListLength := len(lastRepValConList)
 	for i := 0; i < lastRepValConListLength; i++ {
 		line := lastRepValConList[i]
-		trimLineKeyValueList := strings.Split(line, "\t")
+		trimLineKeyValueList := makeTrimLineKeyValueList(
+			line,
+		)
 		if len(trimLineKeyValueList) < 2 {
 			continue
 		}
@@ -167,6 +176,18 @@ func replaceRepValRecursively(
 			)
 		}
 		lastRepValConList = tempRepValConList
+	}
+	return
+}
+
+func makeTrimLineKeyValueList(
+	trimLine string,
+) (
+	trimLineKeyValueList []string,
+) {
+	trimLineKeyValueList = strings.Split(trimLine, "\t")
+	if len(trimLineKeyValueList) == 1 {
+		trimLineKeyValueList = append(trimLineKeyValueList, "")
 	}
 	return
 }
