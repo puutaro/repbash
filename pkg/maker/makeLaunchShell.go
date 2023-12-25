@@ -285,6 +285,7 @@ func removeLaunchBashLine(
 			isBash &&
 			isLaunchShellPath &&
 			!isSaveRepBashLine {
+			output += fmt.Sprintf("### REPBASH_CON\n")
 			continue
 		}
 		output += fmt.Sprintf("%s\n", line)
