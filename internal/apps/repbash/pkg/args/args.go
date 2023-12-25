@@ -25,6 +25,7 @@ func Args() (
 	argsType = val.ArgumentsStruct{
 		args.LaunchShellPath,
 		makeListType(args.SrcTsvPaths),
+		args.ArgsCon,
 		makeArgsMap(args.ArgsCon),
 		makeListType(args.ImportPaths),
 		args.IsSaveRepbashLine,

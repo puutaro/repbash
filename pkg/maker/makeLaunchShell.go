@@ -205,6 +205,7 @@ func replaceByAppVal(
 	mainRepValMap map[string]string,
 ) {
 	launchShellPath := argsStruct.LaunchShellPath
+	repbashArgsCon := argsStruct.ArgsCon
 	appRootPath := os.Getenv("APP_ROOT_PATH")
 	appDirPath := os.Getenv("APP_DIR_PATH")
 	replaceVariablesTsvRelativePath := os.Getenv("REPLACE_VARIABLES_TSV_RELATIVE_PATH")
@@ -220,6 +221,12 @@ func replaceByAppVal(
 		*targetCon,
 		"${0}",
 		launchShellPath,
+		-1,
+	)
+	*targetCon = strings.Replace(
+		*targetCon,
+		"${REPBASH_AGS_CON}",
+		repbashArgsCon,
 		-1,
 	)
 	*targetCon = strings.Replace(

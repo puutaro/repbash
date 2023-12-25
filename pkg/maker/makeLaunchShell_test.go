@@ -89,6 +89,7 @@ func TestMakeLaunchShell(t *testing.T) {
 					testArgsInStruct: val.ArgumentsStruct{
 						LaunchShellPath: filepath.Join(testDataDirPath, "normal/shell/launch.sh"),
 						SrcTsvPaths:     []string{filepath.Join(testDataDirPath, "/normal/case1/facts/replaceVariablesTable2.tsv")},
+						ArgsCon:         "valName1=vv1,valName2=vv2",
 						ArgsMap:         map[string]string{"valName1": "vv1", "valName2": "vv2"},
 						ImportPaths: []string{
 							"${IMPORT_PATH1}",
