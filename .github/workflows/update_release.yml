@@ -1,0 +1,25 @@
+name: update release
+on:
+  workflow_dispatch:
+jobs:
+  update-release:
+    runs-on: ubuntu-latest
+#    permissions:
+#      contents: write # 書き込むために必要
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Go 1.21.3
+        uses: actions/setup-go@v4
+        with:
+          # Semantic version range syntax or exact version of Go
+          go-version: '1.21.3'
+#      - name: Install dependencies
+#        run: |
+#          go get .
+#          go get example.com/octo-examplemodule
+#          go get example.com/octo-examplemodule@v1.3.4
+      - name: test
+        run: |
+          go test ./...
+
