@@ -29,7 +29,6 @@ go build -o \
   "${binary_name_amd64}" \
   cmd/repbash/main.go | pv
 chmod +x "${binary_name_amd64}"
-#gh release create "${VERSION}" "${binary_name_amd64}"
 
 binary_name_arm64="repbash-${VERSION}-arm64"
 GOOS=linux \
