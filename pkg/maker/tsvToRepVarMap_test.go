@@ -72,7 +72,6 @@ type testTsvReaderService struct {
 type testTsvPathList struct {
 	fact string
 	want map[string]string
-	//want []string
 }
 
 type testErrForReadTsv struct {
