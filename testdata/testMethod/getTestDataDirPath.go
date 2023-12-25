@@ -13,6 +13,9 @@ func GetTestDataDirPath() string {
 	}
 	workingDirPathList := strings.Split(workingDirPath, "/")
 	repbashIndex := indexOf("repbash", workingDirPathList)
+	if workingDirPathList[repbashIndex+1] == "repbash" {
+		repbashIndex++
+	}
 	return filepath.Join(
 		strings.Join(workingDirPathList[:repbashIndex+1], "/"),
 		"testdata",
