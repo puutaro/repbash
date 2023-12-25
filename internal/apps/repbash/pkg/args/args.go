@@ -16,8 +16,8 @@ func Args() (
 	var args struct {
 		LaunchShellPath   string   `arg:"positional, required" help:"launch shell path"`
 		SrcTsvPaths       []string `arg:"-t,--src-tsv-path" help:"val name to val value tsv paths"`
-		ArgsCon           string   `arg:"-a,--args-con" help:"args contetns key to value map list"`
-		IsSaveRepbashLine bool     `arg:"-s,--save-repbash-line" help:"save flag for repbash cmd line"`
+		ArgsCon           string   `arg:"-a,--args-con" help:"args contetns key to value map list (Replace ${REPBASH_ARGS_CON} with this in script)"`
+		IsSaveRepbashLine bool     `arg:"-s,--save-repbash-line" help:"save flag for repbash cmd line (Ordinary, replace 'exec repbash ~' with '### REPBASH_CON')"`
 		ImportPaths       []string `arg:"-i,--import" help:"import shell file (include http url9"`
 	}
 
