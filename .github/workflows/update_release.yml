@@ -22,9 +22,13 @@ jobs:
       - name: test
         run: |
           go test ./...
+      - name: install require package
+        run: |
+          sudo apt-get install -y \
+            pv
       - name: push to release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-         bash ./scripts/build.sh
+          bash ./scripts/build.sh
 
