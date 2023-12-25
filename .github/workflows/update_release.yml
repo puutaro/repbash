@@ -23,7 +23,7 @@ jobs:
         run: |
           echo pwd; pwd
           echo ls; ls -al
-          echo find; find . -type f
+          echo find; find $(pwd) -type f
       - name: test
         run: |
           go test ./...
