@@ -225,7 +225,7 @@ func replaceByAppVal(
 	)
 	*targetCon = strings.Replace(
 		*targetCon,
-		"${REPBASH_AGS_CON}",
+		"${REPBASH_ARGS_CON}",
 		repbashArgsCon,
 		-1,
 	)
