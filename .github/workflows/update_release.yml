@@ -19,6 +19,11 @@ jobs:
 #          go get .
 #          go get example.com/octo-examplemodule
 #          go get example.com/octo-examplemodule@v1.3.4
+      - name: info
+        run: |
+          echo pwd; pwd
+          echo ls; ls -al
+          echo find; find . -type f
       - name: test
         run: |
           go test ./...
