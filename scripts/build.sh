@@ -6,6 +6,8 @@ readonly CURRENT_DIR_PATH=$(dirname "$0")
 readonly REPBASH_DIR_PATH=$(cd "${CURRENT_DIR_PATH}"; cd ../; pwd)
 cd "${REPBASH_DIR_PATH}"
 echo pwd; pwd
+echo "${REPBASH_DIR_PATH}/cmd/repbash/main.go"
+ls cmd/repbash/main.go
 
 readonly remove_past_binary=$(\
   find \
