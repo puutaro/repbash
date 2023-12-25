@@ -25,7 +25,8 @@ jobs:
       - name: install require package
         run: |
           sudo apt-get install -y \
-            pv
+            pv \
+            g++-aarch64-linux-gnu
       - name: push to release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
