@@ -5,6 +5,7 @@ import (
 	"github.com/puutaro/repbash/testdata/testMethod"
 	"path/filepath"
 	"reflect"
+	"regexp"
 	"testing"
 )
 
@@ -20,6 +21,22 @@ type testSrcTsvPathsStruct struct {
 type testMakeMainMapWantStruct struct {
 	wantMainRepValMap map[string]string
 	wantErr           error
+}
+
+type testTsvReader struct{}
+
+func (tr testTsvReader) ReadTsv(tsvPath string) (string, error) {
+	tsvConSrc, err := readFile(
+		tsvPath,
+	)
+	if err != nil {
+		return "", err
+	}
+	testDataDirPath := testMethod.GetTestDataDirPath()
+	testDataDirPathRegex := regexp.MustCompile("\t.*/testdata/")
+	return testDataDirPathRegex.ReplaceAllString(
+		tsvConSrc, fmt.Sprintf("\t%s/", testDataDirPath),
+	), nil
 }
 
 func TestMakeMainRepValMap(t *testing.T) {
@@ -86,6 +103,7 @@ func TestMakeMainRepValMap(t *testing.T) {
 			wantErr := testMakeMainMapWantStruct.wantErr
 			getMainRepValMap, getErr := MakeMainRepValMap(
 				testSrcTsvPathsIn,
+				testTsvReader{},
 			)
 			if !reflect.DeepEqual(getMainRepValMap, wantMainRepValMap) ||
 				!testMethod.IsErrEqual(getErr, wantErr) {

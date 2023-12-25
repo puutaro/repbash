@@ -7,6 +7,7 @@ import (
 
 func MakeMainRepValMap(
 	srcTsvPaths []string,
+	tsvReader TsvReader,
 ) (mainRepValMap map[string]string, err error) {
 	mainRepValMap = make(map[string]string)
 	for _, srcTsvPath := range srcTsvPaths {
@@ -16,7 +17,7 @@ func MakeMainRepValMap(
 		)
 		repValMap, err := TsvToRepVarMap(
 			srcTsvPath,
-			tsvReadService{reader: NewTsvReader()},
+			tsvReadService{reader: tsvReader},
 		)
 		if err != nil {
 			return mainRepValMap,
