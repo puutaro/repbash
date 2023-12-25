@@ -50,7 +50,7 @@ echo "echo 'cmdMusicPlayerDirPath' ${cmdMusicPlayerDirPath}"
 echo "echo 'cmdMusicPlayerListDirPath' ${cmdMusicPlayerListDirPath}"
 echo "echo 'cmdMusicPlayerDirListFilePath' ${cmdMusicPlayerDirListFilePath}"
 echo "echo 'cmdYoutubePlayerBlankVal' ${cmdYoutubePlayerBlankVal}"
-echo "echo 'REPBASH_AGS_CON' ${REPBASH_AGS_CON}"
+echo "echo 'REPBASH_AGS_CON' ${REPBASH_ARGS_CON}"
 
 go build -o repbash cmd/repbash/main.go \
 ;exec ./repbash \
