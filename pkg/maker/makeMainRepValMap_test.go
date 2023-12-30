@@ -5,7 +5,6 @@ import (
 	"github.com/puutaro/repbash/testdata/testMethod"
 	"path/filepath"
 	"reflect"
-	"regexp"
 	"testing"
 )
 
@@ -41,11 +40,7 @@ func (tr testTsvReader) ReadTsv(tsvPath string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	testDataDirPath := testMethod.GetTestDataDirPath()
-	testDataDirPathRegex := regexp.MustCompile("\t.*/testdata/")
-	return testDataDirPathRegex.ReplaceAllString(
-		tsvConSrc, fmt.Sprintf("\t%s/", testDataDirPath),
-	), nil
+	return testMethod.ReplaceTestDataDirPath(tsvConSrc), nil
 }
 
 func TestMakeMainRepValMap(t *testing.T) {
@@ -76,7 +71,7 @@ func TestMakeMainRepValMap(t *testing.T) {
 						"IMPORT_PATH3":                       filepath.Join(testDataDirPath, "normal/case1/facts/importShell3.sh"),
 						"REPLACE_VARIABLE_TABLE_TSV_PATH":    filepath.Join(testDataDirPath, "normal/case1/facts/replaceVariablesTable2.tsv"),
 						"TXT_LABEL":                          "label",
-						"UBUNTU_ENV_TSV_PATH":                "/home/xbabu/Desktop/share/android/cmds/repbash/testdata/normal/case1/facts/ubuntu_env.tsv",
+						"UBUNTU_ENV_TSV_PATH":                filepath.Join(testDataDirPath, "normal/case1/facts/ubuntu_env.tsv"),
 						"cmdMusicPlayerDirListFilePath":      filepath.Join("/home/dummy/dir/path/list/music_dir_list"),
 						"cmdMusicPlayerDirPath":              "/home/dummy/dir/path",
 						"cmdMusicPlayerSmallListDirPath":     "/home/dummy/dir/path/list/smallList",
