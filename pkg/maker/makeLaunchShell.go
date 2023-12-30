@@ -36,7 +36,7 @@ func MakeLaunchShell(
 		&resultShellCon,
 		mainRepValMap,
 	)
-	replaceByAppVal(
+	ReplaceByAppVal(
 		ioGetter,
 		&resultShellCon,
 		argsStruct,
@@ -198,7 +198,7 @@ func getFromLocal(
 	return
 }
 
-func replaceByAppVal(
+func ReplaceByAppVal(
 	ioGetter IoGetter,
 	targetCon *string,
 	argsStruct val.ArgumentsStruct,

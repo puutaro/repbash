@@ -10,8 +10,17 @@ import (
 )
 
 type testMakeMainRepValMapStruct struct {
-	testSrcTsvPathsStruct
+	testInStructForMakeMainRepValMap
 	testMakeMainMapWantStruct
+}
+
+type testInStructForMakeMainRepValMap struct {
+	testSrcTsvPathsStruct testSrcTsvPathsStruct
+	testEnvStruct         testEnvStruct
+}
+
+type testEnvStruct struct {
+	in map[string]string
 }
 
 type testSrcTsvPathsStruct struct {
@@ -48,9 +57,14 @@ func TestMakeMainRepValMap(t *testing.T) {
 		{
 			"normal",
 			testMakeMainRepValMapStruct{
-				testSrcTsvPathsStruct{
-					in: []string{
-						filepath.Join(testDataDirPath, "normal/case1/facts/replaceVariablesTable.tsv"),
+				testInStructForMakeMainRepValMap{
+					testSrcTsvPathsStruct: testSrcTsvPathsStruct{
+						in: []string{
+							filepath.Join(testDataDirPath, "normal/case1/facts/replaceVariablesTable.tsv"),
+						},
+					},
+					testEnvStruct: testEnvStruct{
+						in: testMethod.UbuntuEnvMap,
 					},
 				},
 				testMakeMainMapWantStruct{
@@ -62,6 +76,7 @@ func TestMakeMainRepValMap(t *testing.T) {
 						"IMPORT_PATH3":                       filepath.Join(testDataDirPath, "normal/case1/facts/importShell3.sh"),
 						"REPLACE_VARIABLE_TABLE_TSV_PATH":    filepath.Join(testDataDirPath, "normal/case1/facts/replaceVariablesTable2.tsv"),
 						"TXT_LABEL":                          "label",
+						"UBUNTU_ENV_TSV_PATH":                "/home/xbabu/Desktop/share/android/cmds/repbash/testdata/normal/case1/facts/ubuntu_env.tsv",
 						"cmdMusicPlayerDirListFilePath":      filepath.Join("/home/dummy/dir/path/list/music_dir_list"),
 						"cmdMusicPlayerDirPath":              "/home/dummy/dir/path",
 						"cmdMusicPlayerSmallListDirPath":     "/home/dummy/dir/path/list/smallList",
@@ -76,9 +91,14 @@ func TestMakeMainRepValMap(t *testing.T) {
 		{
 			"not found err",
 			testMakeMainRepValMapStruct{
-				testSrcTsvPathsStruct{
-					in: []string{
-						filepath.Join(testDataDirPath, "normal/case1/facts/replaceVariablesTable99.tsv"),
+				testInStructForMakeMainRepValMap{
+					testSrcTsvPathsStruct: testSrcTsvPathsStruct{
+						in: []string{
+							filepath.Join(testDataDirPath, "normal/case1/facts/replaceVariablesTable99.tsv"),
+						},
+					},
+					testEnvStruct: testEnvStruct{
+						in: testMethod.UbuntuEnvMap,
 					},
 				},
 				testMakeMainMapWantStruct{
@@ -97,10 +117,12 @@ func TestMakeMainRepValMap(t *testing.T) {
 	for _, testMakeMainRepValMapStructEl := range testMakeMainRepValMapStructs {
 		t.Run(testMakeMainRepValMapStructEl.caseName, func(t *testing.T) {
 			testMakeMainRepValMapStruct := testMakeMainRepValMapStructEl.testMakeMainRepValMapStruct
+			testEnvStructIn := testMakeMainRepValMapStruct.testEnvStruct.in
 			testSrcTsvPathsIn := testMakeMainRepValMapStruct.testSrcTsvPathsStruct.in
 			testMakeMainMapWantStruct := testMakeMainRepValMapStruct.testMakeMainMapWantStruct
 			wantMainRepValMap := testMakeMainMapWantStruct.wantMainRepValMap
 			wantErr := testMakeMainMapWantStruct.wantErr
+			testMethod.SetupEnv(t, testEnvStructIn)
 			getMainRepValMap, getErr := MakeMainRepValMap(
 				testSrcTsvPathsIn,
 				testTsvReader{},

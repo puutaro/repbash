@@ -17,6 +17,7 @@ cmdMusicPlayerSmallDirListFilePath	"${cmdMusicPlayerSmallListDirPath}/small_list
 
 // libs path
 REPLACE_VARIABLE_TABLE_TSV_PATH	/home/xbabu/Desktop/share/android/cmds/repbash/testdata/normal/case1/facts/replaceVariablesTable2.tsv
+UBUNTU_ENV_TSV_PATH	/home/xbabu/Desktop/share/android/cmds/repbash/testdata/normal/case1/facts/${UBUNTU_ENV_TSV_NAME}
 IMPORT_PATH1	"/home/xbabu/Desktop/share/android/cmds/repbash/testdata/normal/case1/facts/importShell1.sh"
 IMPORT_PATH2	"/home/xbabu/Desktop/share/android/cmds/repbash/testdata/normal/case1/facts/importShell2.sh"
 IMPORT_PATH3	"/home/xbabu/Desktop/share/android/cmds/repbash/testdata/normal/case1/facts/importShell3.sh"

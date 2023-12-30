@@ -35,7 +35,7 @@ export REPLACE_VARIABLES_TSV_RELATIVE_PATH="settingVariables/replaceVariablesTab
 export APP_ROOT_PATH="/storage/emulated/0/Documents/cmdclick"
 export APP_DIR_PATH="${APP_ROOT_PATH}/AppDir"
 export UBUNTU_SERVICE_TEMP_DIR_PATH="${APP_ROOT_PATH}/temp/ubuntuService"
-export UBUNTU_ENV_TSV_NAME="/suppport/ubuntu_env_temp.tsv"
+export UBUNTU_ENV_TSV_NAME="ubuntu_env.tsv"
 export MONITOR_DIR_PATH="/storage/emulated/0/Documents/conf/monitor"
 export HTTP2_SHELL_PATH="/storage/emulated/0/Documents/cmdclick/temp/cmd/cmd.sh"
 export HTTP2_SHELL_PORT="15000"
@@ -51,19 +51,22 @@ echo "echo 'HTTP2_SHELL_PATH' ${HTTP2_SHELL_PATH}"
 echo "echo 'HTTP2_SHELL_PORT' ${HTTP2_SHELL_PORT}"
 echo "echo 'valName1 ${valName1}'"
 echo "echo 'valName2 ${valName2}'"
+echo "echo 'valName3 ${valName3}'"
 echo "echo 'repbash'"
 echo "echo 'cmdMusicPlayerDirPath' ${cmdMusicPlayerDirPath}"
 echo "echo 'cmdMusicPlayerListDirPath' ${cmdMusicPlayerListDirPath}"
 echo "echo 'cmdMusicPlayerDirListFilePath' ${cmdMusicPlayerDirListFilePath}"
 echo "echo 'cmdYoutubePlayerBlankVal' ${cmdYoutubePlayerBlankVal}"
 echo "echo 'REPBASH_AGS_CON' ${REPBASH_ARGS_CON}"
+echo "echo 'UBUNTU_ENV_TSV_VALUE' ${UBUNTU_ENV_TSV_VALUE}"
 
 go build -o repbash cmd/repbash/main.go \
 ;exec ./repbash \
     "${0}" \
     -t \
       '${REPLACE_VARIABLE_TABLE_TSV_PATH}' \
-    -a "valName1=vv1,valName2=vv2" \
+      '${UBUNTU_ENV_TSV_PATH}' \
+    -a "valName1=vv1,valName2=vv2,valName3=" \
     -i \
       "\${IMPORT_PATH1}" \
       "\${IMPORT_PATH2}" \

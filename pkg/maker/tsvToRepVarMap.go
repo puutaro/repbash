@@ -3,6 +3,7 @@ package maker
 import (
 	"fmt"
 	"github.com/puutaro/repbash/pkg/util/stringMethod"
+	"github.com/puutaro/repbash/pkg/val"
 	"os"
 	"strings"
 )
@@ -42,6 +43,12 @@ func TsvToRepVarMap(
 	if err != nil {
 		return repValMap, err
 	}
+	ReplaceByAppVal(
+		NewIoGetter(),
+		&tsvCon,
+		val.ArgumentsStruct{},
+		map[string]string{},
+	)
 	repValConList := convertTsvToList(
 		tsvCon,
 	)
