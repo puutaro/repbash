@@ -211,6 +211,9 @@ func replaceByAppVal(
 	replaceVariablesTsvRelativePath := os.Getenv("REPLACE_VARIABLES_TSV_RELATIVE_PATH")
 	ubuntuServiceTempDirPath := os.Getenv("UBUNTU_SERVICE_TEMP_DIR_PATH")
 	ubuntuEnvTsvName := os.Getenv("UBUNTU_ENV_TSV_NAME")
+	monitorDirPath := os.Getenv("MONITOR_DIR_PATH")
+	http2ShellPath := os.Getenv("HTTP2_SHELL_PATH")
+	http2ShellPort := os.Getenv("HTTP2_SHELL_PORT")
 	*targetCon = strings.Replace(
 		*targetCon,
 		"\\\n",
@@ -257,6 +260,24 @@ func replaceByAppVal(
 		*targetCon,
 		"${UBUNTU_ENV_TSV_NAME}",
 		ubuntuEnvTsvName,
+		-1,
+	)
+	*targetCon = strings.Replace(
+		*targetCon,
+		"${MONITOR_DIR_PATH}",
+		monitorDirPath,
+		-1,
+	)
+	*targetCon = strings.Replace(
+		*targetCon,
+		"${HTTP2_SHELL_PATH}",
+		http2ShellPath,
+		-1,
+	)
+	*targetCon = strings.Replace(
+		*targetCon,
+		"${HTTP2_SHELL_PORT}",
+		http2ShellPort,
 		-1,
 	)
 	*targetCon = removeLaunchBashLine(
