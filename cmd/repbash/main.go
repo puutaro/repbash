@@ -48,13 +48,10 @@ func main() {
 		os.Exit(1)
 	}
 
-	out, errout, err := shell.ExecBashCommand(shellCon)
+	err = shell.ExecBashCommand(shellCon)
 	if err != nil {
-		log.Println(errout)
 		log.Printf("error: %v\n", err)
 		os.Exit(1)
 	}
-	fmt.Println(out)
-	//fmt.Printf(shellCon)
 
 }
